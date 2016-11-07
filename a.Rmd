@@ -48,18 +48,28 @@ skincare[,4]<-gsub('never',1,skincare[,4],fixed=TRUE)
 skincare[,4]<-gsub('every day',2,skincare[,4],fixed=TRUE)
 skincare[,4]<-gsub('occasionally',3,skincare[,4],fixed=TRUE)
 skincare[,4]<-as.numeric(skincare[,4])
+##sun-care preference every day=2 sunny=1 never=0
+skincare[,10]<-gsub('every day',2,skincare[,10],fixed=TRUE)
+skincare[,10]<-gsub('only when it is sunny',1,skincare[,10],fixed=TRUE)
+skincare[,10]<-gsub('never',0,skincare[,10],fixed=TRUE)
+skincare[,10]<-as.numeric(skincare[,10])
+##skin condition below average=0 average=1 good=2 perfect=3
+skincare[,11]<-gsub('below average',0,skincare[,11],fixed=TRUE)
+skincare[,11]<-gsub('average',1,skincare[,11],fixed=TRUE)
+skincare[,11]<-gsub('good',2,skincare[,11],fixed=TRUE)
+skincare[,11]<-gsub('perfect',3,skincare[,11],fixed=TRUE)
+skincare[,11]<-as.numeric(skincare[,11])
 ##number of products for one day
 skincare[,7]<-as.numeric(skincare[,7])
 ##get a histogram of number of skin-care products for one day
 hist(skincare[,7],xlab='products for one day',main='histogram of skin-care products for one day')
 box()
-##use t-test to decide if there if a relationship between gender and skin-type
+##use t-test to decide if there is a relationship between gender and skin-type
 t.test(skincare[,1],skincare[,6],conf.level=0.95)
-
-```
-
-## 
-```{r}
-
+##use t-test to decide if there is a relationship between age and skin-type
+t.test(skincare[,2],skincare[,6])
+##decide whether using sun-care products will actually affect skin condition
+t.test(skincare[,10],skincare[,11])
+##
 ```
 
