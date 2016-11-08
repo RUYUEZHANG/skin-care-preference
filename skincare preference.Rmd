@@ -70,6 +70,6 @@ t.test(skincare[,1],skincare[,6],conf.level=0.95)
 t.test(skincare[,2],skincare[,6])
 ##decide whether using sun-care products will actually affect skin condition
 t.test(skincare[,10],skincare[,11])
-##add 
+##add a histogram of sun-care products use
 ```
 
