@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## introduction of this investigation
-I've always been intrested in skin-care and followed many bloggers who introduce their skin care preference and routine on youtube. But I alwayse have these doubt, and I believe many people do, such as would make-up products do harm to our skin? And whether sun-care products would keep skin in a better condition? 
+I've always been intrested in skin-care and followed many bloggers who introduce their skin care preference and routine on youtube. But I have some doubt, and I believe many people do, such as would make-up products do harm to our skin? And whether sun-care products would actually keep skin in a better condition? 
 
 Based on these I designed a survey using Google form and put the link on my Facebook and also Friends Circle (the most popular platform in China). 
 
@@ -61,6 +61,8 @@ skincare[,11]<-gsub('perfect',3,skincare[,11],fixed=TRUE)
 skincare[,11]<-as.numeric(skincare[,11])
 ##number of products for one day
 skincare[,7]<-as.numeric(skincare[,7])
+##summary of data source
+table(skincare[,1:3])
 ##get a histogram of number of skin-care products for one day
 hist(skincare[,7],xlab='products for one day',main='histogram of skin-care products for one day')
 box()
@@ -71,5 +73,7 @@ t.test(skincare[,2],skincare[,6])
 ##decide whether using sun-care products will actually affect skin condition
 t.test(skincare[,10],skincare[,11])
 ##add a histogram of sun-care products use
+hist(skincare[,11],xlab='number of products one day',main='histogram of sun-care products use',breaks = 3)
+box()
 ```
 
